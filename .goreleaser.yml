@@ -9,7 +9,7 @@ before:
 builds:
   - id: "jk_rose"
   - binary: program
-  ldflags:
+  - ldflags:
     - -s -w
   - env:
       - CGO_ENABLED=0
