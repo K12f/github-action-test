@@ -7,9 +7,7 @@ before:
     # you may remove this if you don't need go generate
     - go generate ./...
 builds:
-  -
-    id: "jk"
-    env:
+  - env:
       - CGO_ENABLED=0
       - GO111MODULE=on
       - GOPROXY=https://goproxy.io,direct
@@ -24,15 +22,16 @@ builds:
       - amd64
       - arm64
 archives:
-  - replacements:
+  -
+    replacements:
       darwin: Darwin
       linux: Linux
       windows: Windows
       amd64: x86_64
-  - format: zip
-    format_overrides:
-      - goos: windows
-        format: zip
+    format: zip
+      format_overrides:
+        - goos: windows
+          format: zip
 checksum:
   name_template: 'checksums.txt'
 snapshot:
