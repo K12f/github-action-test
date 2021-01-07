@@ -9,20 +9,27 @@ before:
 builds:
   - env:
       - CGO_ENABLED=0
-    id: "jk_rose"
-    binary: program
+    binary: jk_rose
     ldflags:
       - -s -w
     goos:
       - linux
       - windows
       - darwin
+    goarch:
+      - amd64
+      - arm64
 archives:
   - replacements:
       darwin: Darwin
       linux: Linux
       windows: Windows
       amd64: x86_64
+  -
+    format: zip
+    format_overrides:
+      - goos: windows
+        format: zip
 checksum:
   name_template: 'checksums.txt'
 snapshot:
