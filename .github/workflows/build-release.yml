@@ -21,8 +21,17 @@ jobs:
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@master
         with:
+          name: jd_seckill
           version: latest
           args: release --rm-dist
           workdir: .
+          goos:
+            - darwin
+            - linux
+            - windows
+          goarch:
+            - amd64
+            - arm
+            - arm64
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
