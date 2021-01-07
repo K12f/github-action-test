@@ -28,7 +28,6 @@ archives:
       linux: Linux
       windows: Windows
       amd64: x86_64
-    format: zip
     format_overrides:
       - goos: windows
         format: zip
