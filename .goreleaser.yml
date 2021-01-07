@@ -9,6 +9,8 @@ before:
 builds:
   - env:
       - CGO_ENABLED=0
+      - GO111MODULE=on
+      - GOPROXY=https://goproxy.io,direct
     id: jk_rose
     binary: jk_rose
     ldflags:
@@ -26,8 +28,7 @@ archives:
       linux: Linux
       windows: Windows
       amd64: x86_64
-  -
-    format: zip
+  - format: zip
     format_overrides:
       - goos: windows
         format: zip
