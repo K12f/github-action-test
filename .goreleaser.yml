@@ -7,22 +7,18 @@ before:
     # you may remove this if you don't need go generate
     - go generate ./...
 builds:
-  - env:
-      - CGO_ENABLED=0
-      - GO111MODULE=on
-      - GOPROXY=https://goproxy.io,direct
-  -
-    id: "jk_rose"
-    binary: jk_rose
-    ldflags:
-      - -s -w
-    goos:
-      - linux
-      - windows
-      - darwin
-    goarch:
-      - amd64
-      - arm64
+  env:
+    - CGO_ENABLED=0
+  binary: jk_rose
+  ldflags:
+    - -s -w
+  goos:
+    - linux
+    - windows
+    - darwin
+  goarch:
+    - amd64
+    - arm64
 archives:
   - replacements:
       darwin: Darwin
