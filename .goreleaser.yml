@@ -7,12 +7,12 @@ before:
     # you may remove this if you don't need go generate
     - go generate ./...
 builds:
-  - id: "jk_rose"
-  - binary: program
-  - ldflags:
-    - -s -w
   - env:
       - CGO_ENABLED=0
+    id: "jk_rose"
+    binary: program
+    ldflags:
+      - -s -w
     goos:
       - linux
       - windows
